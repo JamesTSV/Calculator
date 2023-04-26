@@ -1,0 +1,35 @@
+print("Wellcome to my Calculator")
+x_list ="*/-+"
+again_list = ["yes","Yes","YES","y","Y"]
+more= True
+while more:
+	num1= input("First number: ")
+	while not num1.isdigit():
+		num1=input("Please enter correct NUMBER: ")
+	num1=int(num1)
+	x=input("Enter Calculation: ")
+	while x not in x_list: #checkin solution
+		x=input("Re-enter what you want to do: ")
+	num2 = input("Second number: ")
+	while num2.isdigit()==False: #checking solution
+		num2=input("Please enter the NUMBER: ")
+	num2=int(num2)
+	ans=None
+	if x =="-":
+		ans = num1-num2
+	elif x=="+":
+		ans= num1+num2
+	elif x =="*":
+		ans=num1*num2
+	elif x=="/":
+		while num2==0: #checking solution by /0
+			print("It's not possible to divide by 0")
+			print("Please enter another number")
+			num2 = input("Another number: ")
+			while num2.isdigit()==False: #checking solution
+				num2=input("Please enter correct NUMBER: ")
+			num2=int(num2)
+		ans =num1/num2
+	print("The answer is: ",num1,x,num2,"=",ans)
+	more = True if input("Again? Yes/No: ") in again_list else False
+print("Thank you for using our calculator")
